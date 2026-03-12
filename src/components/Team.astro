@@ -1,0 +1,103 @@
+---
+import hospitalInfo from '../data/hospital-info.json';
+
+interface Doctor {
+  name: string;
+  role: string;
+  qualification: string;
+  experience: string;
+  specialization: string;
+  photo: string;
+}
+---
+
+<section id="team" class="py-20 lg:py-28 bg-white relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-1/2 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+  <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-in">
+      <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+        Our Experts
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral mb-4">
+        Meet Our <span class="text-primary">Medical Team</span>
+      </h2>
+      <p class="text-neutral/60 text-base sm:text-lg">
+        Experienced, qualified, and passionate — our doctors are the backbone of every successful treatment at Prayosha Hospital.
+      </p>
+    </div>
+
+    <!-- Doctors Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {hospitalInfo.team.map((doc: Doctor) => (
+        <div class="fade-in group">
+          <div class="relative bg-light-gray rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl border border-transparent hover:border-primary/20">
+            <!-- Photo -->
+            <div class="relative h-72 overflow-hidden">
+              <img
+                src={doc.photo}
+                alt={doc.name}
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/80 via-neutral/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <!-- Experience badge -->
+              <div class="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                {doc.experience}
+              </div>
+
+              <!-- Hover overlay info -->
+              <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl p-3">
+                  <div class="flex items-center gap-2 mb-1">
+                    <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <span class="text-xs font-semibold text-secondary">Specialization</span>
+                  </div>
+                  <p class="text-xs text-neutral/70 leading-relaxed">{doc.specialization}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Info -->
+            <div class="p-5">
+              <h3 class="text-lg font-bold text-neutral group-hover:text-primary transition-colors">
+                {doc.name}
+              </h3>
+              <p class="text-primary text-sm font-semibold mt-1">
+                {doc.role}
+              </p>
+              <div class="mt-3 flex items-center gap-2">
+                <svg class="w-4 h-4 text-secondary/60 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+                <span class="text-xs text-neutral/50 leading-snug">{doc.qualification}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom note -->
+    <div class="mt-14 text-center fade-in">
+      <div class="inline-flex items-center gap-3 bg-light-gray rounded-2xl px-6 py-4">
+        <div class="w-10 h-10 bg-primary/15 rounded-xl flex items-center justify-center">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </div>
+        <div class="text-left">
+          <div class="font-bold text-sm text-neutral">Trusted by families across Padra & Vadodara</div>
+          <div class="text-xs text-neutral/50">Backed by decades of combined clinical experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

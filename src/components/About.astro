@@ -1,0 +1,82 @@
+---
+import hospitalInfo from '../data/hospital-info.json';
+---
+
+<section id="about" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text Content -->
+      <div class="slide-left">
+        <!-- Section Label -->
+        <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+          About Us
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral mb-6 leading-tight">
+          {hospitalInfo.about.title.split(' ').map((word: string, i: number) => (
+            i >= hospitalInfo.about.title.split(' ').length - 2
+              ? <span class="text-secondary"> {word}</span>
+              : <span> {word}</span>
+          ))}
+        </h2>
+
+        {hospitalInfo.about.paragraphs.map((p: string) => (
+          <p class="text-neutral/70 text-base sm:text-lg leading-relaxed mb-4">{p}</p>
+        ))}
+
+        <!-- Highlights -->
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="flex items-center gap-3 bg-light-gray rounded-xl p-4">
+            <div class="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center text-xl">✨</div>
+            <div>
+              <div class="font-bold text-sm text-neutral">High Cleanliness</div>
+              <div class="text-xs text-neutral/50">Top Standards</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-light-gray rounded-xl p-4">
+            <div class="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center text-xl">💰</div>
+            <div>
+              <div class="font-bold text-sm text-neutral">Affordable Rates</div>
+              <div class="text-xs text-neutral/50">For Everyone</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-light-gray rounded-xl p-4">
+            <div class="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center text-xl">🏆</div>
+            <div>
+              <div class="font-bold text-sm text-neutral">Quality Care</div>
+              <div class="text-xs text-neutral/50">Multispecialty</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="slide-right relative">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+          <img
+            src="/images/about.png"
+            alt="Prayosha Hospital Interior"
+            class="w-full h-[400px] lg:h-[500px] object-cover"
+            loading="lazy"
+          />
+          <!-- Floating card -->
+          <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md rounded-2xl p-5 shadow-xl">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                <span class="text-white text-2xl">🏥</span>
+              </div>
+              <div>
+                <div class="font-bold text-neutral">Multispecialty Excellence</div>
+                <div class="text-sm text-neutral/60">Serving Padra and Vadodara region</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative dot grid -->
+        <div class="absolute -top-6 -right-6 w-24 h-24 opacity-20" style="background-image: radial-gradient(circle, #51C2B8 1.5px, transparent 1.5px); background-size: 12px 12px;"></div>
+      </div>
+    </div>
+  </div>
+</section>

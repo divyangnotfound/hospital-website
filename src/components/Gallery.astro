@@ -1,0 +1,63 @@
+---
+import hospitalInfo from '../data/hospital-info.json';
+
+interface GalleryItem {
+  type: string;
+  url: string;
+  title: string;
+}
+---
+
+<section id="gallery" class="py-20 lg:py-28 bg-light-gray">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-in">
+      <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+        Media
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral mb-4">
+        Video & <span class="text-secondary">Gallery Updates</span>
+      </h2>
+      <p class="text-neutral/60 text-base sm:text-lg">
+        Stay connected with our latest health tips, staff activities, and hospital updates through our video gallery.
+      </p>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+      {hospitalInfo.gallery.map((item: GalleryItem) => (
+        <div class="fade-in group">
+          <div class="relative rounded-2xl overflow-hidden shadow-lg bg-neutral aspect-video">
+            <iframe
+              src={item.url}
+              title={item.title}
+              class="w-full h-full"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="mt-3 px-1">
+            <h3 class="font-semibold text-neutral text-base group-hover:text-secondary transition-colors">
+              {item.title}
+            </h3>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+              <span class="text-xs text-neutral/50 capitalize">{item.type}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Add more note -->
+    <div class="mt-10 text-center fade-in">
+      <p class="text-neutral/50 text-sm">
+        Want to see more? Follow us on
+        <a href={hospitalInfo.socialLinks.youtube} class="text-secondary font-semibold hover:underline">YouTube</a> and
+        <a href={hospitalInfo.socialLinks.instagram} class="text-secondary font-semibold hover:underline">Instagram</a>.
+      </p>
+    </div>
+  </div>
+</section>

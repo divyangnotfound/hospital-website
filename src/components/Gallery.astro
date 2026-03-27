@@ -1,0 +1,200 @@
+---
+import hospitalInfo from '../data/hospital-info.json';
+
+interface GalleryItem {
+  type: string;
+  url: string;
+  title: string;
+}
+---
+
+<section id="gallery" class="py-20 lg:py-28 bg-light-gray">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 fade-in">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral mb-4">
+        Discover <span class="text-secondary">Prayosha</span>
+      </h2>
+      <p class="text-neutral/60 text-base sm:text-lg">
+        Take a glimpse into our world-class facilities and stay connected with our latest updates.
+      </p>
+    </div>
+
+    <!-- Image Carousel (Priority) -->
+    <div class="mb-16 lg:mb-24 fade-in">
+      <div class="flex items-center justify-between mb-6 px-2">
+        <h3 class="text-2xl font-bold text-neutral">Our Facilities</h3>
+        
+        <!-- Carousel Controls -->
+        <div class="flex items-center gap-2">
+          <button id="prev-slide" class="w-10 h-10 rounded-full bg-white border border-light-gray flex items-center justify-center text-neutral hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-sm" aria-label="Previous slide">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button id="next-slide" class="w-10 h-10 rounded-full bg-white border border-light-gray flex items-center justify-center text-neutral hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-sm" aria-label="Next slide">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="relative overflow-hidden rounded-3xl shadow-lg border border-light-gray/60 bg-neutral">
+        <div id="gallery-carousel" class="flex transition-transform duration-700 ease-in-out h-[300px] sm:h-[400px] lg:h-[500px]">
+          {hospitalInfo.gallery.filter((i: GalleryItem) => i.type === 'image').map((item: GalleryItem) => (
+            <div class="w-full h-full shrink-0 relative group">
+              <img
+                src={item.url}
+                alt={item.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-neutral/20 to-transparent"></div>
+              
+              <div class="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
+                <h4 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white drop-shadow-lg mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  {item.title}
+                </h4>
+                <div class="w-12 h-1 bg-primary rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <!-- Indicators -->
+        <div id="carousel-indicators" class="absolute bottom-6 right-6 sm:right-10 flex gap-2">
+           {hospitalInfo.gallery.filter((i: GalleryItem) => i.type === 'image').map((_, idx) => (
+            <button class="w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white transition-colors" data-slide={idx} aria-label={`Go to slide ${idx + 1}`}></button>
+           ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="fade-in">
+      <div class="flex items-center justify-between mb-6 px-2">
+        <h3 class="text-2xl font-bold text-neutral">Video Updates</h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+        {hospitalInfo.gallery.filter((i: GalleryItem) => i.type === 'youtube').map((item: GalleryItem) => (
+          <div class="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="relative overflow-hidden bg-neutral aspect-video">
+              <iframe
+                src={item.url}
+                title={item.title}
+                class="w-full h-full"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-center">
+              <h4 class="font-bold text-lg text-neutral group-hover:text-primary transition-colors leading-snug">
+                {item.title}
+              </h4>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Socials note -->
+    <div class="mt-12 text-center fade-in">
+      <p class="text-neutral/50 text-sm">
+        Want to see more? Follow us on
+        <a href={hospitalInfo.socialLinks.youtube} target="_blank" class="text-secondary font-semibold hover:underline">YouTube</a> and
+        <a href={hospitalInfo.socialLinks.instagram} target="_blank" class="text-secondary font-semibold hover:underline">Instagram</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('gallery-carousel');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    const indicatorsWrapper = document.getElementById('carousel-indicators');
+    
+    if (!carousel || !prevBtn || !nextBtn || !indicatorsWrapper) return;
+
+    const slides = carousel.children;
+    const indicators = indicatorsWrapper.children;
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+    let autoPlayInterval;
+
+    const updateCarousel = () => {
+      // Move carousel
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      // Update indicators
+      Array.from(indicators).forEach((ind, idx) => {
+        if (idx === currentSlide) {
+          ind.classList.remove('bg-white/40');
+          ind.classList.add('bg-white', 'scale-125');
+        } else {
+          ind.classList.add('bg-white/40');
+          ind.classList.remove('bg-white', 'scale-125');
+        }
+      });
+    };
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    };
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    };
+
+    const startAutoPlay = () => {
+      stopAutoPlay();
+      autoPlayInterval = setInterval(nextSlide, 5000); // Change image every 5 seconds
+    };
+
+    const stopAutoPlay = () => {
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+    };
+
+    // Event Listeners
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAutoPlay(); // Reset timer on manual interaction
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAutoPlay();
+    });
+
+    Array.from(indicators).forEach((ind, idx) => {
+      ind.addEventListener('click', () => {
+        currentSlide = idx;
+        updateCarousel();
+        startAutoPlay();
+      });
+    });
+
+    // Pause on hover
+    carousel.parentElement.addEventListener('mouseenter', stopAutoPlay);
+    carousel.parentElement.addEventListener('mouseleave', startAutoPlay);
+
+    // Initialize
+    updateCarousel();
+    startAutoPlay();
+  });
+</script>

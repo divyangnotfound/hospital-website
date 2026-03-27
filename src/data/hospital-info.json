@@ -1,0 +1,152 @@
+{
+  "name": "Prayosha Hospital",
+  "fullName": "Prayosha Multispeciality Hospital",
+  "tagline": "Prayosha Multispeciality Hospital",
+  "subTagline": "Your trusted 24/7 ICU and Multispeciality Trauma Center",
+  "address": {
+    "line1": "City Center, 3rd & 4th Floor",
+    "line2": "Jashpur Chokdi, Jambusar Padra Rd",
+    "city": "Padra",
+    "district": "Vadodara",
+    "state": "Gujarat",
+    "pin": "391440",
+    "full": "City Center, 3rd & 4th Floor, Jashpur Chokdi, Jambusar Padra Rd, Padra, Vadodara, Gujarat - 391440"
+  },
+  "contact": {
+    "emergency": "07211133321",
+    "emergencyDisplay": "072111 33321",
+    "callNow": "07211133321",
+    "callNowDisplay": "072111 33321"
+  },
+  "opd": {
+    "timings": "Available 24/7",
+    "days": "All Days, Including Holidays"
+  },
+  "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1903846.7971972586!2d70.61427384386936!3d21.25361702287556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fb943ca3c9763%3A0x48c1cb2be15f197a!2sPrayosha%20Hospital!5e0!3m2!1sen!2sin!4v1773471967870!5m2!1sen!2sin",
+  "directionsUrl": "https://maps.app.goo.gl/8KFCvvtV1Uk2Kqg29",
+  "departments": [
+    {
+      "name": "ICU & Trauma Care",
+      "description": "Round-the-clock intensive care with state-of-the-art monitoring systems and a dedicated trauma response team.",
+      "icon": "🏥",
+      "highlight": "24/7 Available"
+    },
+    {
+      "name": "General Medicine",
+      "description": "Comprehensive internal medicine services covering diagnostics, treatment, and preventive care for all age groups.",
+      "icon": "🩺",
+      "highlight": null
+    },
+    {
+      "name": "Ambulance Service",
+      "description": "Fully-equipped emergency ambulance service ensuring rapid patient transport across the Padra region.",
+      "icon": "🚑",
+      "highlight": "Rapid Response"
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Modular Operation Theatres",
+      "description": "Laminar air-flow modular OTs with cutting-edge surgical instruments for safe procedures.",
+      "icon": "🏗️"
+    },
+    {
+      "name": "Ventilator Support",
+      "description": "Advanced ICU ventilators for critical respiratory management and post-operative care.",
+      "icon": "🫁"
+    },
+    {
+      "name": "24-Hour Pharmacy",
+      "description": "In-house pharmacy stocked with essential and specialty medicines, open round the clock.",
+      "icon": "💊"
+    },
+    {
+      "name": "Advanced Sterilization (CSSD)",
+      "description": "Central Sterile Supply Department ensuring highest standards of instrument sterilization and infection control.",
+      "icon": "🧪"
+    }
+  ],
+  "gallery": [
+    {
+      "type": "image",
+      "url": "/images/facilities/ward-1.jpg",
+      "title": "General Ward Recovery Area"
+    },
+    {
+      "type": "image",
+      "url": "/images/facilities/ot-1.jpg",
+      "title": "Advanced Operating Theater"
+    },
+    {
+      "type": "image",
+      "url": "/images/facilities/pharmacy.jpg",
+      "title": "In-House Pharmacy"
+    },
+    {
+      "type": "image",
+      "url": "/images/facilities/ot-2.jpg",
+      "title": "State-of-the-Art Surgical Lights"
+    },
+    {
+      "type": "image",
+      "url": "/images/facilities/ward-2.jpg",
+      "title": "Comfortable Patient Recovery Beds"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/FyXADQyTssM?si=iYFtZ5KwibL5NwdE",
+      "title": "Hospital Tour & Facilities"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/EN72MSpwQ-M?si=Lt4gCTUgwI4mdooH",
+      "title": "Latest News Coverage"
+    }
+  ],
+  "socialLinks": {
+    "facebook": "#",
+    "instagram": "#",
+    "youtube": "#"
+  },
+  "team": [
+    {
+      "name": "Dr. Jaimin Shah",
+      "role": "Consultant Physician & ICU Specialist",
+      "qualification": "MBBS, FCCM",
+      "experience": "18+ Years",
+      "specialization": "Intensive Care & Trauma Management",
+      "photo": "/images/doctor-1.png"
+    },
+    {
+      "name": "Dr. Pavan Amin",
+      "role": "Consultant Physician & Diabetologist",
+      "qualification": "MBBS, MD PGDDM (UK), FID",
+      "experience": "14+ Years",
+      "specialization": "Diabetes, Hypertension, Thyroid and Endocrine",
+      "photo": "/images/doctor-2.png"
+    },
+    {
+      "name": "Dr. Kantibhai Agaja",
+      "role": "General Surgeon",
+      "qualification": "MBBS, MS (General Surgery)",
+      "experience": "28+ Years",
+      "specialization": "Endoscopy, Laproscopic Surgery, Colorectal Surgery & Gastroenterology",
+      "photo": "/images/doctor-3.png"
+    },
+    {
+      "name": "Dr. Nisarg Oza",
+      "role": "Pulmonologist & Sleep Medicine Specialist",
+      "qualification": "MBBS, MD (Pulmonary Medicine)",
+      "experience": "10+ Years",
+      "specialization": "Respiratory Care - Sleep Apnea, Asthma, Bronchitis & more",
+      "photo": "/images/doctor-4.png"
+    }
+  ],
+  "about": {
+    "title": "About Prayosha Hospital",
+    "paragraphs": [
+      "Prayosha Multispeciality Hospital is Padra's premier healthcare facility, committed to delivering world-class medical services at affordable rates. Our state-of-the-art infrastructure and experienced medical team ensure that every patient receives personalized, compassionate care.",
+      "We maintain the highest standards of cleanliness and hygiene across every department — from our modular operation theatres to the ICU and patient wards. Our mission is to make quality multispecialty healthcare accessible to every family in the region."
+    ]
+  }
+}
